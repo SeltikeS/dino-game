@@ -1,0 +1,74 @@
+:root {
+  --game-width: 37.5rem;
+  --game-height: 12.5rem;
+  --dino-size: 3.125rem;
+  --cactus-width: 1.25rem;
+  --cactus-height: 2.5rem;
+  --cactus-right: 36.25rem;
+  --cactus-left: -1.25rem;
+  --jump-bottom: 9.375rem;
+  --jump-middle: 8.125rem;
+  --jump-top: 5rem;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+.game {
+  width: var(--game-width);
+  height: var(--game-height);
+  border-bottom: 1px solid #000;
+  margin: auto;
+}
+
+#dino {
+  width: var(--dino-size);
+  height: var(--dino-size);
+  background-image: url(img/dino.png);
+  background-size: var(--dino-size) var(--dino-size);
+  position: relative;
+  top: calc(3 * var(--dino-size));
+}
+
+#cactus {
+  width: var(--cactus-width);
+  height: var(--cactus-height);
+  background-image: url(img/cactus.png);
+  background-size: var(--cactus-width) var(--cactus-height);
+  position: relative;
+  top: 6.875rem;
+  left: 36.25rem;
+  animation: cactusMove 1.25s infinite linear;
+}
+
+@keyframes cactusMove {
+  0% {
+    left: var(--cactus-right);
+  }
+  100% {
+    left: var(--cactus-left);
+  }
+}
+
+.jump {
+  animation: jump .4s linear;
+}
+
+@keyframes jump {
+  0% {
+    top: var(--jump-bottom);
+  }
+  30% {
+    top: var(--jump-middle);
+  }
+  50% {
+    top: var(--jump-top);
+  }
+  80% {
+    top: var(--jump-middle);
+  }
+  100% {
+    top: var(--jump-bottom);
+  }
+}
